@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>18 Dough District</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Preload background image -->
+  <link rel="preload" href="cover-photo.png" as="image">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: url('cover-photo.png') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+    .main-box {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 50px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      color: white;
+      max-width: 900px;
+      width: 90%;
+    }
+    .logo img { width: 280px; }
+    .content { text-align: left; flex: 1; }
+    h1 { font-size: 3em; margin-bottom: 15px; text-shadow: 0 0 15px rgba(255,255,255,0.9); }
+    p { font-size: 1.4em; margin: 8px 0; text-shadow: 0 0 10px rgba(255,255,255,0.7); }
+    .buttons { margin-top: 30px; display: flex; gap: 20px; }
+    .buttons a {
+      flex: 1; text-align: center; padding: 18px 0;
+      background: black; color: white; text-decoration: none;
+      font-size: 1.2em; border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px rgba(255,255,255,0.8);
+    }
+    .buttons a:hover { background:#333; box-shadow:0 0 18px rgba(255,255,255,1); }
+
+    /* 📱 Mobile Responsive */
+    @media (max-width: 768px) {
+      .main-box {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 30px;
+      }
+      .logo img { width: 200px; }
+      h1 { font-size: 2em; }
+      p { font-size: 1.1em; }
+      .buttons { flex-direction: column; }
+      .buttons a { width: 100%; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-box">
+    <div class="logo">
+      <img src="business-logo.png" alt="18 Dough District Logo">
+    </div>
+    <div class="content">
+      <h1>18 Dough District</h1>
+      <p>Simply Baked Better</p>
+      <p>Baked Fresh Everyday</p>
+      <p>Handcrafted with Care</p>
+      <div class="buttons">
+        <a href="about.html">About</a>
+        <a href="product.html">Product</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Smooth fade-out on navigation
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", function(e) {
+        if (this.href.includes(".html")) {
+          e.preventDefault();
+          document.body.style.animation = "fadeOut 0.8s ease forwards";
+          setTimeout(() => { window.location.href = this.href; }, 800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

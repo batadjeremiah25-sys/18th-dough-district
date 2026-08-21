@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About - 18 Dough District</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="cover-photo.png" as="image">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: url('cover-photo.png') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+    @keyframes fadeOut { from {opacity:1;} to {opacity:0;} }
+
+    .about-box {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 50px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      max-width: 800px;
+      color: white;
+      text-align: center;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: slideUp 1.2s ease forwards;
+      animation-delay: 0.3s;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+    h1 { font-size: 3em; margin-bottom: 20px; text-shadow: 0 0 15px rgba(255,255,255,0.9); }
+    p { font-size: 1.3em; margin: 15px 0; line-height: 1.6; text-shadow: 0 0 10px rgba(255,255,255,0.7); }
+    a {
+      display: inline-block; margin-top: 25px; padding: 12px 25px;
+      background: black; color: white; text-decoration: none;
+      border-radius: 8px; font-size: 1.1em;
+      transition: all 0.3s ease; box-shadow: 0 0 10px rgba(255,255,255,0.8);
+    }
+    a:hover { background:#333; box-shadow:0 0 15px rgba(255,255,255,1); }
+
+    /* 📱 Mobile Responsive */
+    @media (max-width: 768px) {
+      .about-box { padding: 30px; }
+      h1 { font-size: 2em; }
+      p { font-size: 1.1em; }
+      a { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="about-box">
+    <h1>About Us</h1>
+    <p>At 18 Dough District, we believe baking is more than just making bread — it’s about crafting joy in every bite.</p>
+    <p>Founded with passion and dedication, our bakery is committed to delivering fresh, handcrafted goods daily.</p>
+    <p>From classic favorites to unique creations, we bring warmth and flavor to our community.</p>
+    <a href="home.html">Back to Home</a>
+  </div>
+  <script>
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", function(e) {
+        if (this.href.includes(".html")) {
+          e.preventDefault();
+          document.body.style.animation = "fadeOut 0.8s ease forwards";
+          setTimeout(() => { window.location.href = this.href; }, 800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

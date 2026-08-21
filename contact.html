@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - 18 Dough District</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="cover-photo.png" as="image">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: url('cover-photo.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+    @keyframes fadeOut { from {opacity:1;} to {opacity:0;} }
+
+    .logo {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+    }
+    .logo img {
+      width: 120px;
+    }
+
+    .contact-box {
+      background: rgba(0,0,0,0.7);
+      margin: 120px auto 30px;
+      padding: 40px;
+      border-radius: 12px;
+      max-width: 600px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px rgba(255,255,255,0.9);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+    textarea { resize: vertical; min-height: 100px; }
+    button {
+      padding: 12px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(255,255,255,0.8);
+    }
+    button:hover {
+      background: #333;
+      box-shadow: 0 0 15px rgba(255,255,255,1);
+    }
+
+    .details {
+      margin-top: 25px;
+      font-size: 1em;
+    }
+    .details p {
+      margin: 8px 0;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: black;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(255,255,255,0.8);
+    }
+    .back-home:hover {
+      background: #333;
+      box-shadow: 0 0 15px rgba(255,255,255,1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Logo -->
+  <div class="logo">
+    <img src="business-logo.png" alt="18 Dough District Logo">
+  </div>
+
+  <!-- Contact Box -->
+  <div class="contact-box">
+    <h1>Contact Us</h1>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="details">
+      <p><strong>Address:</strong> 18th Dough District, Marilao, Bulacan</p>
+      <p><strong>Phone:</strong> +63 912 345 6789</p>
+      <p><strong>Email:</strong> info@18thdoughdistrict.com</p>
+    </div>
+
+    <a href="home.html" class="back-home">Back to Home</a>
+  </div>
+
+  <script>
+    // Smooth fade-out on navigation
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", function(e) {
+        if (this.href.includes(".html")) {
+          e.preventDefault();
+          document.body.style.animation = "fadeOut 0.8s ease forwards";
+          setTimeout(() => { window.location.href = this.href; }, 800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
